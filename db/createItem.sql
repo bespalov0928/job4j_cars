@@ -5,5 +5,5 @@ description text,
 carId int not null references car(id),
 fotoId int references foto(id),
 sold boolean,
-accauntId int references accaunt(id)
+accauntId int references account(id)
 )

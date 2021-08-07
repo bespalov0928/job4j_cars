@@ -24,6 +24,6 @@ public class Item {
     private boolean sold;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private List<Accaunt> accaunts = new ArrayList<>();
+    private List<Account> accounts = new ArrayList<>();
 
 }

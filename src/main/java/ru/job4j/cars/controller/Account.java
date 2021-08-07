@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name="accaunts")
-public class Accaunt {
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -14,13 +14,13 @@ public class Accaunt {
     private String email;
     private String phone;
 
-    public Accaunt(String userName, String email, String phone) {
+    public Account(String userName, String email, String phone) {
         this.userName = userName;
         this.email = email;
         this.phone = phone;
     }
 
-    public Accaunt() {
+    public Account() {
 
     }
 }
