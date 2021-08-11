@@ -11,7 +11,17 @@ public class Car {
 
     private String name;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "typeId")
     private TypeBody typeBody;
+
+    public Car(String name, TypeBody typeBody) {
+        this.name = name;
+        this.typeBody = typeBody;
+    }
+
+    public Car() {
+    }
+
+
 }

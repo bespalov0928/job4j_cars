@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "items")
+@Table(name = "typeBodes")
 public class TypeBody {
 
     @Id

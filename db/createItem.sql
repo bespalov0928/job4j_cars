@@ -1,9 +1,10 @@
-drop table item
+drop table items
 create table items(
-id serial primary key,
-description text,
-carId int not null references car(id),
-fotoId int references foto(id),
-sold boolean,
-accauntId int references account(id)
-)
+  id serial primary key,
+  description text,
+  carId int not null references cars(id),
+  fotoId int references fotos(id),
+  sold boolean,
+  accauntId int references accounts(id),
+  dateItem timestamp
+);
