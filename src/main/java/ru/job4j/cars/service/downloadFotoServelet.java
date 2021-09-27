@@ -22,10 +22,8 @@ public class downloadFotoServelet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String name = req.getParameter("name");
-//        name = "image1.png";
         File downloadFile = null;
         for (File file : new File("c:\\projects\\job4j_cars\\images\\").listFiles()) {
-//            if (name.equals(file.getName())) {
             String[] subStr = file.getName().split("\\.");
             if (name.equals(file.getName())) {
                 downloadFile = file;
@@ -38,26 +36,6 @@ public class downloadFotoServelet extends HttpServlet {
         try (FileInputStream stream = new FileInputStream(downloadFile)){
             resp.getOutputStream().write(stream.readAllBytes());
         }
-
-
-//        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-//        PrintWriter writer = resp.getWriter();
-//
-//        List<File> files = Arrays.asList(new File("c:\\projects\\job4j_cars\\images\\").listFiles());
-//        File downloadFile = files.get(0);
-//
-//        try (FileInputStream stream = new FileInputStream(downloadFile)){
-//
-//            byte[] arr = stream.readAllBytes();
-//            String Base64 = DatatypeConverter.printBase64Binary(arr);
-//
-//            String json = GSON.toJson(Base64);
-//            writer.println(json);
-//            writer.flush();
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
     }
 
     @Override

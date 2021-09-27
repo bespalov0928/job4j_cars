@@ -28,11 +28,7 @@ public class authorizationServelet extends HttpServlet {
             return;
         }
         if (acc.getEmail().equals(email) && acc.getPassword().equals(password)) {
-//        if ("root@local".equals(email) && "root".equals(password)) {
             HttpSession sc = req.getSession();
-//            Account admin = new Account();
-//            admin.setName("Admin");
-//            admin.setEmail(email);
             sc.setAttribute("user", acc);
             resp.sendRedirect(req.getContextPath() + "/posts.do");
         } else {

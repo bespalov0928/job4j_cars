@@ -35,10 +35,6 @@
 <script>
     function validate() {
         valid = true;
-        // if (document.contact_form.id.value == "") {
-        //     alert("Запишите новое объявление")
-        //     valid = false;
-        // }
         return valid;
     }
 </script>

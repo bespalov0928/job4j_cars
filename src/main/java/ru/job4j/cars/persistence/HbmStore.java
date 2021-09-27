@@ -45,17 +45,7 @@ public class HbmStore implements AutoCloseable {
     }
 
     public List<Item> findAll() {
-//        return this.tx(session -> {
-//            List<Item> list = session.createQuery("select distinct i from Item i ").list();
-//            List<Item> list = session.createQuery("select i from Item i ").list();
-//            return list;
-//        });
-
         return this.tx(session -> {
-//            List<Item> list = session.createQuery("from Item as item "
-//                                        + "left join fetch item.car as car"
-//                                        + "left join fetch item.fotos as foto"
-//                                        + "left join fetch item.account as accaunt").list();
             List<Item> list = session.createQuery("select distinct i from Item i "
                     + "left join fetch i.fotos f"
                     + "left join fetch i.account a"
@@ -68,7 +58,6 @@ public class HbmStore implements AutoCloseable {
     }
 
     public <T> T createItem(T item) {
-        //int rsl = 99;
         return this.tx(session -> {
             session.save(item);
             return item;
@@ -79,7 +68,6 @@ public class HbmStore implements AutoCloseable {
         return this.tx(session -> {
             Item rsl = (Item) session.createQuery("from ru.job4j.cars.controller.Item i " +
                             "left join fetch i.fotos where i.id=:id"
-//            Item rsl = (Item) session.createQuery("from ru.job4j.cars.controller.Item i join fetch i.fotos where id =:id"
             ).setParameter("id", id).uniqueResult();
             return rsl;
         });
@@ -91,24 +79,13 @@ public class HbmStore implements AutoCloseable {
             return item;
         });
 
-//        this.tx(session -> {
-//            session.createQuery("update Item i set i.car = :icar, i.sold =:isold where i.id =:iid"
-////            ).setParameter("ifotos", item.getFotos()
-//            ).setParameter("icar", item.getCar()
-//            ).setParameter("isold", item.getSold()
-//            ).setParameter("iid", id
-//            ).executeUpdate();
-//            return null;
-//        });
     }
 
     public void updateItemFotos(Item item) {
         this.tx(session -> {
             session.createQuery("update Item i set i.car = :icar, i.sold =:isold where i.id =:iid"
-//            ).setParameter("ifotos", item.getFotos()
             ).setParameter("icar", item.getCar()
             ).setParameter("isold", item.getSold()
-//            ).setParameter("iid", id
             ).executeUpdate();
             return null;
         });
@@ -220,7 +197,6 @@ public class HbmStore implements AutoCloseable {
     }
 
     public Foto findFotoByName(String name) {
-//        Foto rsl = null;
         return this.tx(session -> {
             Foto rsl = (Foto) session.createQuery("from ru.job4j.cars.controller.Foto where pathName =:pathName"
             ).setParameter("pathName", name

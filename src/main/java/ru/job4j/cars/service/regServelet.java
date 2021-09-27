@@ -26,11 +26,6 @@ public class regServelet extends HttpServlet {
         String email = req.getParameter("email");
         HttpSession hs = req.getSession();
         Account accStart = new Account(name, email, "", password);
-        //User userStart = new User(0, name, email, password);
-//        User userStart = new User();
-//        userStart.setName(name);
-//        userStart.setEmail(email);
-//        userStart.setPassword(password);
 
         Account acc = HbmStore.instOf().findAccountByEmail(email);
         if (acc != null){
@@ -42,6 +37,5 @@ public class regServelet extends HttpServlet {
         acc = HbmStore.instOf().createItem(accStart);
         hs.setAttribute("user", acc);
         resp.sendRedirect("index.jsp");
-//        resp.sendRedirect(req.getContextPath() + "/index.do");
     }
 }

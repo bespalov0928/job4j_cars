@@ -1,11 +1,5 @@
 <%@ page import="ru.job4j.cars.controller.User" %>
-<%@ page import="ru.job4j.cars.controller.Account" %><%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 23.09.2021
-  Time: 14:46
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="ru.job4j.cars.controller.Account" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -40,9 +34,6 @@
                 <li>
                     <a class="nav-link" href="<%=request.getContextPath()%>/auto.do"> <c:out value="${acc.userName}"/>|Выйти</a>
                 </li>
-                <%--<li>--%>
-                <%--<a> class="nav-link" href="<%=request.getContextPath()%>/reg.jsp">Регистрация</a>--%>
-                <%--</li>--%>
             </div>
             <div class="card-body">
                 <form name="contact_form" action="<%=request.getContextPath()%>/reg.do" method="post"

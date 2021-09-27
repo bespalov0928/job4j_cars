@@ -24,29 +24,16 @@ public class updateServelet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         resp.setHeader("content-type", "text/html;charset=UTF-8");
         resp.setContentType("text/plain, charset=UTF-8");
-//        resp.setContentType("text/plain");
-//        resp.setContentType("UTF-8");
         PrintWriter writer = resp.getWriter();
-//        PrintWriter writer = new PrintWriter(resp.getOutputStream());
         List<Item> items = (ArrayList<Item>) HbmStore.instOf().findAll();
         for (Item item : items) {
             String pathName = "";
             String base64 = "";
             List<Foto> listFoto = item.getFotos();
-//            if (listFoto.size() != 0) {
-//                Foto foto = listFoto.get(0);
-//                pathName = foto.getPathName();
-//                File file = new File(pathName);
-//                FileInputStream stream = new FileInputStream(file);
-//                byte[] arr = stream.readAllBytes();
-//                base64 = DatatypeConverter.printBase64Binary(arr);
-//            }
             item.imgBase64 = base64;
         }
         String json = GSON.toJson(items.toArray());
-//        writer.write(json);
         writer.println(json);
-//        writer.println(json.getBytes("UTF-8"));
         writer.flush();
     }
 

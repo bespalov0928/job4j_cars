@@ -1,12 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>--%>
-<%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 29.08.2021
-  Time: 15:08
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="java.util.List" %>
 <%@page import="java.util.ArrayList" %>
@@ -41,17 +33,12 @@
     <title>Новое объявление</title>
 </head>
 
-<%--<body onload="readeBrend();">--%>
 <body>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <script>
     function validate() {
         valid = true;
-        // if (document.contact_form.id.value == "") {
-        //     alert("Запишите новое объявление")
-        //     valid = false;
-        // }
         return valid;
     }
 
@@ -64,12 +51,6 @@
         typeBody = document.getElementById("typeBody").value;
         descr = document.getElementById("descr").value;
         sale = document.getElementById("sale").value;
-        // console.log(document.getElementById("brend"));
-        // console.log(document.getElementById("model"));
-        // console.log(document.getElementById("typeBody"));
-        // console.log(document.getElementById("descr"));
-        // var arrNameFile = "{foto1:image1.png }";
-        // document.getElementById("table").rows[1].cells[1].innerHTML
         var table = document.getElementById("table");
         var len = document.getElementById("table").rows.length;
         var arrNameFile = [3];
@@ -86,36 +67,13 @@
             "arrNameFile": arrNameFile,
             "sale": sale
         };
-        // var  str = "{\"id\":" + id;
-        // str = str + ",\"brend\":" + document.getElementById("brend").value;
-        // str = str + ",\"model\":" + document.getElementById("model").value;
-        // str = str + ",\"typeBody\":" + document.getElementById("typeBody").value;
-        // str = str + ",\"descr\":" + document.getElementById("descr").value;
-        // str = str + ",\"arrNameFile\":" + arrNameFile+"}";
-        // str = "{" + str + "}";
-
         var jsonStr = JSON.stringify(str);
-
-        // var jsonStr = {"author":"TEST", "title":"XYZ"};
         console.log(jsonStr);
 
         $.ajax({
             type: 'POST',
             url: 'http://localhost:8080/cars/saveItem.do',
             data: {jsondata: JSON.stringify(str)},
-            // data: JSON.stringify({
-            //     id: 1,
-            //     // brend: document.getElementById("brend").selectedIndex,
-            //     brend: document.getElementById("brend").value,
-            //     // model: document.getElementById("model").selectedIndex,
-            //     model: document.getElementById("model").value,
-            //     // typeBody: document.getElementById("typeBody").selectedIndex,
-            //     typeBody: document.getElementById("typeBody").value,
-            //     descr: document.getElementById("descr").value,
-            //     arrNameFile: arrNameFile
-            //     // arrNameFile: JSON.stringify(arrNameFile)
-            //     // id: document.getElementById("id").value
-            // }),
             dataType: 'json'
         }).done(function (date) {
             alert(date)
@@ -216,10 +174,8 @@
             </div>
 
             <div class="form-group">
-                <%--<c:out value="${item.sold}"/>--%>
                 <label for="sale">Продано</label>
                 <select class="form-control" name="sale" id="sale">
-                    <%--<option value=${item.sold}><c:out value="${item.sold}"/></option>--%>
                     <c:if test="${item.sold == true}">
                         <option value=true>да</option>
                         <option value=false>нет</option>

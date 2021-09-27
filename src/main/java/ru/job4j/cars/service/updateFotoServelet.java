@@ -18,7 +18,6 @@ public class updateFotoServelet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String id = req.getParameter("id");
-//        String id = "1";
         Item item = HbmStore.instOf().findItemId(Integer.valueOf(id));
         File downloadFile = null;
         List<Foto> listFoto = item.getFotos();

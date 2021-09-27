@@ -110,33 +110,4 @@
         <url-pattern>*.do</url-pattern>
     </filter-mapping>
 
-
-    <!--<servlet>-->
-        <!--<servlet-name>readeBrendServelet</servlet-name>-->
-        <!--<servlet-class>ru.job4j.cars.service.readeBrendServelet</servlet-class>-->
-    <!--</servlet>-->
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>readeBrendServelet</servlet-name>-->
-        <!--<url-pattern>/readeBrend.do</url-pattern>-->
-    <!--</servlet-mapping>-->
-
-    <!--<servlet>-->
-        <!--<servlet-name>readModelServelet</servlet-name>-->
-        <!--<servlet-class>ru.job4j.cars.service.readModelServelet</servlet-class>-->
-    <!--</servlet>-->
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>readModelServelet</servlet-name>-->
-        <!--<url-pattern>/readeModel.do</url-pattern>-->
-    <!--</servlet-mapping>-->
-
-    <!--<servlet>-->
-        <!--<servlet-name>readBodyServelet</servlet-name>-->
-        <!--<servlet-class>ru.job4j.cars.service.readBodyServelet</servlet-class>-->
-    <!--</servlet>-->
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>readBodyServelet</servlet-name>-->
-        <!--<url-pattern>/readeBody.do</url-pattern>-->
-    <!--</servlet-mapping>-->
-
-
 </web-app>

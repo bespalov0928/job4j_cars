@@ -14,7 +14,6 @@ public class createItemServelet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("create.jsp").forward(req, resp);
-        //super.doGet(req, resp);
     }
 
     @Override
