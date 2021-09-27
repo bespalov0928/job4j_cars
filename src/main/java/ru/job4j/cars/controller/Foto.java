@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Foto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
     private String pathName;
@@ -15,7 +16,18 @@ public class Foto {
         this.pathName = pathName;
     }
 
-   public Foto() {
+    public Foto() {
 
+    }
+
+    public String getPathName() {
+        return pathName;
+    }
+
+    @Override
+    public String toString() {
+        return "Foto{" +
+                "pathName='" + pathName + '\'' +
+                '}';
     }
 }

@@ -1,24 +1,21 @@
 package ru.job4j.cars.controller;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-@Table(name = "typeBodes")
-public class TypeBody {
-
+@Table(name = "models")
+public class Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
-    public TypeBody(String name) {
+    public Model(String name) {
         this.name = name;
     }
 
-    public TypeBody() {
+    public Model() {
     }
 
     public int getId() {

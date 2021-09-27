@@ -23,5 +23,8 @@
         <mapping class="ru.job4j.cars.controller.Foto" />
         <mapping class="ru.job4j.cars.controller.Item" />
         <mapping class="ru.job4j.cars.controller.TypeBody" />
+        <mapping class="ru.job4j.cars.controller.Brend" />
+        <mapping class="ru.job4j.cars.controller.Model" />
+        <mapping class="ru.job4j.cars.controller.User" />
     </session-factory>
 </hibernate-configuration>

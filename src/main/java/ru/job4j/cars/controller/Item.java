@@ -10,6 +10,7 @@ import java.util.List;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
     private String description;
@@ -18,9 +19,9 @@ public class Item {
     @JoinColumn(name = "carId")
     private Car car;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+//    @JoinColumn(name = "item_id", referencedColumnName = "fotos_id")
     private List<Foto> fotos = new ArrayList<>();
-
 
      @ManyToOne
     @JoinColumn(name = "accountId")
@@ -29,12 +30,15 @@ public class Item {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateItem;
 
+
     private boolean sold;
 
-    public Item(String description, Car car, List<Foto> fotos, boolean sold, Account account, Date dateItem) {
+    public String imgBase64 = "";
+
+    public Item(String description, Car car, boolean sold, Account account, Date dateItem) {
         this.description = description;
         this.car = car;
-        this.fotos = fotos;
+        //this.fotos = fotos;
         this.sold = sold;
         this.account = account;
         this.dateItem = dateItem;
@@ -42,4 +46,37 @@ public class Item {
 
     public Item() {
     }
+
+    public List<Foto> getFotos() {
+        return fotos;
+    }
+
+    public void setFotos(List<Foto> fotos) {
+        this.fotos = fotos;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public boolean getSold() {
+        return sold;
+    }
+
+    public void setSold(boolean sold) {
+        this.sold = sold;
+    }
+
 }

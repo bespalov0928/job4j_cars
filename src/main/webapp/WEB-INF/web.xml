@@ -1,7 +1,142 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+        http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <display-name>Archetype Created Web Application</display-name>
+
+    <servlet>
+        <servlet-name>onloadFotoServelet</servlet-name>
+        <servlet-class>ru.job4j.cars.service.onloadFotoServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>onloadFotoServelet</servlet-name>
+        <url-pattern>/onloadFoto.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>downloadFotoServelet</servlet-name>
+        <servlet-class>ru.job4j.cars.service.downloadFotoServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>downloadFotoServelet</servlet-name>
+        <url-pattern>/downloadFoto.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>authorizationServelet</servlet-name>
+        <servlet-class>ru.job4j.cars.service.authorizationServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>authorizationServelet</servlet-name>
+        <url-pattern>/auto.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>regServelet</servlet-name>
+        <servlet-class>ru.job4j.cars.service.regServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>regServelet</servlet-name>
+        <url-pattern>/reg.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateServelet</servlet-name>
+        <servlet-class>ru.job4j.cars.service.updateServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateServelet</servlet-name>
+        <url-pattern>/update.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>saveItemServelet</servlet-name>
+        <servlet-class>ru.job4j.cars.service.saveItemServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>saveItemServelet</servlet-name>
+        <url-pattern>/saveItem.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PostServlet</servlet-name>
+        <servlet-class>ru.job4j.cars.service.PostServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PostServlet</servlet-name>
+        <url-pattern>/posts.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logoutServlet</servlet-name>
+        <servlet-class>ru.job4j.cars.service.logoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutServlet</servlet-name>
+        <url-pattern>/logout.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>createItemServelet</servlet-name>
+        <servlet-class>ru.job4j.cars.service.createItemServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>createItemServelet</servlet-name>
+        <url-pattern>/create.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateFotoServelet</servlet-name>
+        <servlet-class>ru.job4j.cars.service.updateFotoServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateFotoServelet</servlet-name>
+        <url-pattern>/updateFoto.do</url-pattern>
+    </servlet-mapping>
+
+
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>ru.job4j.cars.filter.AuthFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+
+
+    <!--<servlet>-->
+        <!--<servlet-name>readeBrendServelet</servlet-name>-->
+        <!--<servlet-class>ru.job4j.cars.service.readeBrendServelet</servlet-class>-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>readeBrendServelet</servlet-name>-->
+        <!--<url-pattern>/readeBrend.do</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <!--<servlet>-->
+        <!--<servlet-name>readModelServelet</servlet-name>-->
+        <!--<servlet-class>ru.job4j.cars.service.readModelServelet</servlet-class>-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>readModelServelet</servlet-name>-->
+        <!--<url-pattern>/readeModel.do</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <!--<servlet>-->
+        <!--<servlet-name>readBodyServelet</servlet-name>-->
+        <!--<servlet-class>ru.job4j.cars.service.readBodyServelet</servlet-class>-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>readBodyServelet</servlet-name>-->
+        <!--<url-pattern>/readeBody.do</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+
 </web-app>

@@ -15,13 +15,41 @@ public class Car {
     @JoinColumn(name = "typeId")
     private TypeBody typeBody;
 
-    public Car(String name, TypeBody typeBody) {
-        this.name = name;
+    @ManyToOne
+    @JoinColumn(name = "modelid")
+    private Model model;
+
+    @ManyToOne
+    @JoinColumn(name = "brendid")
+    private Brend brend;
+
+    public Car(Brend brend, Model model, TypeBody typeBody) {
+        this.brend = brend;
+        this.model = model;
         this.typeBody = typeBody;
+        this.name = brend.getName();
     }
 
     public Car() {
     }
 
+    public int getId() {
+        return id;
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public TypeBody getTypeBody() {
+        return typeBody;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public Brend getBrend() {
+        return brend;
+    }
 }

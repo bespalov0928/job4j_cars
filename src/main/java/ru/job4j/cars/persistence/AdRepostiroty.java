@@ -75,20 +75,39 @@ public class AdRepostiroty {
 //            session.save(item2);
 //            session.save(item3);
 
-            //объявления за последний день
-            Timestamp timestamp = Timestamp.valueOf("2021-08-11 00:00:00");
-            List<Item> item = (List<Item>) session.createQuery("from ru.job4j.cars.controller.Item i where  i.dateItem >= :fDate")
-                    .setParameter("fDate", timestamp)
+//            //объявления за последний день
+//            Timestamp timestamp = Timestamp.valueOf("2021-08-11 00:00:00");
+//            List<Item> item = (List<Item>) session.createQuery("from ru.job4j.cars.controller.Item i where  i.dateItem >= :fDate")
+//                    .setParameter("fDate", timestamp)
+//                    .list();
+//
+//            //показать объявления с фото
+//            List<Item> items = session.createQuery("from ru.job4j.cars.controller.Item i where i.fotos.size >0").list();
+//
+//            //показать объявления  определнной марки
+//            Car gaz = (Car) session.createQuery("from ru.job4j.cars.controller.Car c where c.name = 'газ'").uniqueResult();
+//            List<Item> list = session.createQuery("from ru.job4j.cars.controller.Item i where i.car = :fCar")
+//                    .setParameter("fCar", gaz)
+//                    .list();
+
+            //показать все объявления
+            List<Item> list = session.createQuery("select distinct i from Item i "
+//                    +"left join fetch i.car c")
+                    +"left join fetch i.fotos f"
+                    +"left join fetch i.account a"
+                    +"left join fetch i.car c")
+
                     .list();
 
-            //показать объявления с фото
-            List<Item> items = session.createQuery("from ru.job4j.cars.controller.Item i where i.fotos.size >0").list();
+//            List<Foto> listFoto = session.createQuery("select f from Foto f left join fetch f.item i").list();
 
-            //показать объявления  определнной марки
-            Car gaz = (Car) session.createQuery("from ru.job4j.cars.controller.Car c where c.name = 'газ'").uniqueResult();
-            List<Item> list = session.createQuery("from ru.job4j.cars.controller.Item i where i.car = :fCar")
-                    .setParameter("fCar", gaz)
-                    .list();
+//            List<Item> list = session.createQuery("from Item as item "
+//                    + " left join fetch item.car as car"
+//                    + " left join fetch item.fotos as foto"
+//                    + " left join fetch item.account as accaunt")
+//                    .list();
+
+
 
             session.getTransaction().commit();
             session.close();
