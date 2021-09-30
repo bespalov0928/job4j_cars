@@ -10,12 +10,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.nio.charset.CharsetDecoder;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -69,14 +65,12 @@ public class saveItemServelet extends HttpServlet {
             HbmStore.instOf().createItem(car);
         }
 
-        //находим объявление
         if (id.equals("") || id.equals("0")) {
             item = new Item(descr, car, false, account, new Date(System.currentTimeMillis()));
         } else {
             item = HbmStore.instOf().findItemId(Integer.valueOf(id));
         }
 
-        //заполняем поля объявления
         List<Foto> fotos = new ArrayList<>();
         for (String nameFoto : arrNameFile) {
             if (id.equals("") || id.equals("0")) {
@@ -96,7 +90,6 @@ public class saveItemServelet extends HttpServlet {
             item.setSold(false);
         }
 
-        //записываем объявление
         if (id.equals("") || id.equals("0")) {
             item = HbmStore.instOf().createItem(item);
         } else {

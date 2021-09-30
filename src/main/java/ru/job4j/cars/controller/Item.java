@@ -20,7 +20,6 @@ public class Item {
     private Car car;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-//    @JoinColumn(name = "item_id", referencedColumnName = "fotos_id")
     private List<Foto> fotos = new ArrayList<>();
 
      @ManyToOne
@@ -38,7 +37,6 @@ public class Item {
     public Item(String description, Car car, boolean sold, Account account, Date dateItem) {
         this.description = description;
         this.car = car;
-        //this.fotos = fotos;
         this.sold = sold;
         this.account = account;
         this.dateItem = dateItem;
