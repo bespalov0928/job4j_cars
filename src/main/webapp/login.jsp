@@ -36,7 +36,7 @@
         }
     </script>
 
-    <title>Работа мечты</title>
+    <title>Авторизация</title>
 </head>
 <body>
 <div class="container pt-3">
@@ -55,7 +55,6 @@
 
             </div>
             <div class="card-body">
-                <a><%=request.getContextPath()%></a>
                 <form name="contact_form" action="<%=request.getContextPath()%>/auto.do" method="post" onsubmit="return validate();">
                     <div class="form-group">
                         <label>Почта</label>

@@ -23,7 +23,6 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <title>Объявления</title>
-    <%--<script src="js/indexOld.js"></script>--%>
 </head>
 
 <body onload="updateDate()">
@@ -35,7 +34,6 @@
     }
 
     function updateDate() {
-        // alert("updateDate");
 
         var elmtTable = document.getElementById('tbody');
         var tableRows = elmtTable.getElementsByTagName('tr');
@@ -137,7 +135,6 @@
         }).fail(function (err) {
             alert("fail");
             console.log(err);
-            //alert(err);
         });
 
     }
@@ -148,7 +145,6 @@
             url: 'http://localhost:8080/cars/create.do',
             dataType: 'json'
         }).done(function (data) {
-            // alert(data)
         }).fail(function (err) {
             alert("err")
         })
@@ -191,13 +187,7 @@
     <form name="createItem" action="<%=request.getContextPath()%>/create.do" method="get" \>
         <button type="submit" class="btn btn-success" onclick="createItem()">Добавить объявление</button>
     </form>
-    <br><br>
-    <div class="row float-none">
-        <button type="button" class="btn btn-success" onclick="updateDate();">Обновить</button>
-    </div>
 </div>
-
-<a class="nav-link" href="<%=request.getContextPath()%>/test.jsp">Test</a>
 
 </body>
 </html>

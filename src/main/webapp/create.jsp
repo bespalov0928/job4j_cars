@@ -170,7 +170,6 @@
                 <input type="text" class="form-control" name="descr" id="descr" placeholder="Описание"
                        value=<%=item.getDescription()%>
                                </div>
-                <br/>
             </div>
 
             <div class="form-group">
@@ -187,7 +186,7 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" hidden = "true">
                 <label for="id">id</label>
                 <input type="text" class="form-control" name="id" id="id" placeholder="id" value=<%=item.getId()%>>
             </div>
